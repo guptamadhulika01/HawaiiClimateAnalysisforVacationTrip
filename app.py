@@ -1,11 +1,13 @@
 # 1. import dependencies
 import numpy as np
+import pandas as pd
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
+# import Flask
 from flask import Flask, jsonify
 
 #################################################
@@ -14,6 +16,7 @@ from flask import Flask, jsonify
 engine = create_engine("sqlite:///hawaii.sqlite")
 
 # reflect an existing database into a new model
+
 Base = automap_base()
 # reflect the tables
 Base.prepare(engine, reflect=True)
@@ -91,6 +94,7 @@ def stations():
 #  * query for the dates and temperature observations from a year from the last data point.
     #last data point(last date of observations recorded)""
 @app.route("/api/v1.0/tobs")
+
 
 def Temp_obs():
     session = Session(engine)
